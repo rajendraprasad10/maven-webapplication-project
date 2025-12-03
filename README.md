@@ -1,1 +1,1 @@
-# maven-webapplication-project
+# maven-web-app-project-kk-funda
