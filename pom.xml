@@ -8,7 +8,7 @@
     <artifactId>maven-web-application-kkfunda</artifactId>
     <packaging>war</packaging>
     <version>0.0.1-SNAPSHOT</version>
-    <name>maven-web-application</name>
+    <name>maven-web-application1</name>
 
     <description>Maven Web Project for Java</description>
 
