@@ -4,8 +4,6 @@ pipeline {
     environment {
         WAR_PATH = "target/*.war"  // dynamically locate the WAR in workspace
         TOMCAT_URL = "http://localhost:8090/manager/text/deploy?path=/maven-web-application&update=true"
-        // TOMCAT_USER = "admin"
-        // TOMCAT_PASS = "admin"
     }
     
     stages {
