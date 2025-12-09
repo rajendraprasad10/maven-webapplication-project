@@ -37,19 +37,19 @@ pipeline {
             }
         }
         
-        stage ("Push Repo"){
-            steps {
-                echo "push war file to repo"
-                sh 'mvn deploy'
-            }
-        }
+        // stage ("Push Repo"){
+        //     steps {
+        //         echo "push war file to repo"
+        //         sh 'mvn deploy'
+        //     }
+        // }
         
         stage("deploy") {
             steps {
                 echo "Deploying WAR file to Tomcat..."
 
                 sh """
-                curl --fail -s -o - -u example:example \
+                curl --fail -s -o - -u admin:admin \
                 "http://localhost:8090/manager/text/deploy?path=/maven-web-application&update=true" \
                 --upload-file /var/lib/jenkins/workspace/scripted-pipeline/target/maven-web-application.war
                 """
