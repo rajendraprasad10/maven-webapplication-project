@@ -76,6 +76,7 @@ pipeline {
                     "${TOMCAT_URL}" \
                     --upload-file ${WAR_FILE}
                     """
+                }
             }
 
         }
