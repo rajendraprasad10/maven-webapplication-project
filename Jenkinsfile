@@ -67,6 +67,8 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'tomcat-creds', 
                                                   usernameVariable: 'TOMCAT_USER', 
                                                   passwordVariable: 'TOMCAT_PASS')]) {
+                    
+                    
                     echo "Deploying WAR to Tomcat..."
 
                     sh """
