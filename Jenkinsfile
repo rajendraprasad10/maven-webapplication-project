@@ -9,7 +9,9 @@ pipeline {
     stages {
         stage ("Git Checkout"){
             steps {
+                script  {
                 notifyBuild("STARTED")
+                }
                 echo "git checkout"
                 git branch: 'dev', url: 'https://github.com/rajendraprasad10/maven-webapplication-project.git'
             }
@@ -121,7 +123,7 @@ pipeline {
         }
 
         // Send notifications
-        slackSend (color: colorCode, message: summary)
+        slackSend (color: colorCode, message: summary, channel: '#all-devops')
         }
 
 }
