@@ -93,6 +93,7 @@ pipeline {
         }
         failure {
             script {
+                echo "Build failed!"
                 notifyBuild("FAILURE")
             }
         }
