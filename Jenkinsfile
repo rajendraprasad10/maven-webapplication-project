@@ -98,9 +98,10 @@ pipeline {
         }
     }
 
+}
 
-    script {
-        def notifyBuild(String buildStatus = 'STARTED') {
+
+def notifyBuild(String buildStatus = 'STARTED') {
             // build status of null means successful
             buildStatus =  buildStatus ?: 'SUCCESS'
 
@@ -124,7 +125,5 @@ pipeline {
 
             // Send notifications
             slackSend (color: colorCode, message: summary, channel: '#all-devops')
-            }
-    }
-
 }
+    
