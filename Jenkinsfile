@@ -13,7 +13,9 @@ pipeline {
                 notifyBuild("STARTED")
                 }
                 echo "git checkout"
-                git branch: ${env.GIT_BRANCH}, url: ${env.GIT_URL}
+                
+                git branch: '${env.GIT_BRANCH}', url: '${env.GIT_URL}'
+                
             }
         }
         
