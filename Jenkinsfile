@@ -7,17 +7,17 @@ pipeline {
     }
     
     stages {
-        stage ("Git Checkout"){
-            steps {
-                script  {
-                notifyBuild("STARTED")
-                }
-                echo "git checkout"
+        // stage ("Git Checkout"){
+        //     steps {
+        //         script  {
+        //         notifyBuild("STARTED")
+        //         }
+        //         echo "git checkout"
                 
-                git branch: '${env.GIT_BRANCH}', url: '${env.GIT_URL}'
+        //         git branch: '${env.GIT_BRANCH}', url: '${env.GIT_URL}'
                 
-            }
-        }
+        //     }
+        // }
         
         stage("Code validation"){
             parallel {
