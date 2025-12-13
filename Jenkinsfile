@@ -22,6 +22,8 @@ pipeline {
         // }
         
         stage("Code validation"){
+            notifyBuild("SUCCESS")
+            
             parallel {
                 stage("Code Style Check"){
                     steps {
