@@ -22,11 +22,16 @@ pipeline {
         // }
         
         stage("Code validation"){
-            notifyBuild("SUCCESS")
+            
             
             parallel {
                 stage("Code Style Check"){
                     steps {
+
+                        script { 
+                            notifyBuild("STARTED")
+                        }
+
                         echo "Check code style using checkstyle"
                         sh 'mvn clean compile'
                     }
