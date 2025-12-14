@@ -1,7 +1,7 @@
 @Library('shared-library') _
 
 pipeline {
-   agent { label 'dev1' }
+   agent any
 
     environment {
         WAR_PATH = "target/*.war"  // dynamically locate the WAR in workspace
