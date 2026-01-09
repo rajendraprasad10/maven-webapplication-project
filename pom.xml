@@ -32,7 +32,7 @@
             <version>20231013</version>
         </dependency>
 
-        <!-- JUnit Updated -->
+        <!-- JUnit -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -40,7 +40,7 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Servlet API (Tomcat 9 compatible) -->
+        <!-- Servlet API -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
@@ -83,7 +83,6 @@
 
     </dependencies>
 
-    <!-- Optional Nexus Repository -->
     <distributionManagement>
         <repository>
             <id>nexus</id>
@@ -102,7 +101,11 @@
         <finalName>maven-web-application</finalName>
 
         <plugins>
-
+		<plugin>
+      <groupId>org.sonarsource.scanner.maven</groupId>
+      <artifactId>sonar-maven-plugin</artifactId>
+      <version>3.11.0.3922</version>
+    </plugin>
             <!-- Compiler Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -114,7 +117,7 @@
                 </configuration>
             </plugin>
 
-            <!-- Updated WAR Plugin -->
+            <!-- WAR Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
@@ -124,7 +127,7 @@
                 </configuration>
             </plugin>
 
-            <!-- Jetty Plugin (Updated & Java 17 Compatible) -->
+            <!-- Jetty Plugin -->
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
@@ -137,7 +140,36 @@
                 </configuration>
             </plugin>
 
+            <!-- OWASP Dependency-Check Plugin -->
+            <plugin>
+                <groupId>org.owasp</groupId>
+                <artifactId>dependency-check-maven</artifactId>
+                <version>12.1.9</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <nvdApiKey>${env.NVD_API_KEY}</nvdApiKey>
+                    <nvdApiDelay>12000</nvdApiDelay>
+                    <cveUrlModified>https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-modified.json.gz</cveUrlModified>
+                    <cveUrlBase>https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-</cveUrlBase>
+                    <failBuildOnCVSS>7</failBuildOnCVSS>
+                    <formats>
+                        <format>HTML</format>
+                    </formats>
+                    <skipTestScope>true</skipTestScope>
+                    <nodeAnalyzerEnabled>false</nodeAnalyzerEnabled>
+                    <pyPackageAnalyzerEnabled>false</pyPackageAnalyzerEnabled>
+                    <dataDirectory>${project.build.directory}/dependency-check</dataDirectory>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
 
 </project>
+

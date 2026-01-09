@@ -1,0 +1,19 @@
+# take node alpine image
+FROM node:20-alpine AS builder
+
+# container working dir 
+WORKDIR /app
+
+# copy files 
+COPY package*.json ./
+
+# npm build
+RUN npm run build 
+
+# copy code into image
+COPY . .
+
+# create static folder
+RUN npm run build 
+
+

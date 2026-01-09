@@ -1,0 +1,38 @@
+pipeline {
+    // Default agent for stages that don't specify their own (e.g., 'Deploy')
+    agent any 
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout your source code from SCM
+                checkout scm 
+            }
+        }
+
+        stage('Build and Test') {
+            // This stage uses the specified Node.js Docker image
+            agent {
+                docker {
+                    image 'node:18-alpine' // Use a specific Node.js image version
+                    args '-v /tmp:/tmp' // Optional: mount volumes or pass extra arguments to 'docker run'
+                }
+            }
+            steps {
+                // Commands here run INSIDE the node:18-alpine container
+                sh 'node --version'
+                sh 'npm install'
+                sh 'npm test'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                // This stage runs on the default 'agent any'
+                echo 'Deploying the application...'
+                // Add deployment steps here (e.g., kubectl apply, or pushing the built image)
+            }
+        }
+    }
+}
+

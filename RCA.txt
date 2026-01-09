@@ -1,0 +1,109 @@
+==============================
+ROOT CAUSE ANALYSIS (RCA)
+==============================
+
+Incident Title:
+--------------------------------------------------
+<Short, clear description of the incident>
+
+Incident ID:
+--------------------------------------------------
+<INC-XXXX / JIRA / PagerDuty ID>
+
+Date & Time of Incident:
+--------------------------------------------------
+<DD-MM-YYYY | Start Time – End Time | Timezone>
+
+Reported By:
+--------------------------------------------------
+<Name / Team / Monitoring Tool>
+
+Severity / Priority:
+--------------------------------------------------
+<SEV-1 / SEV-2 / SEV-3>
+
+Impacted Services:
+--------------------------------------------------
+<Service Name(s)>
+
+Impacted Users:
+--------------------------------------------------
+<Internal / External / Number of users>
+
+Business Impact:
+--------------------------------------------------
+<Revenue loss, SLA breach, customer impact, reputation>
+
+--------------------------------------------------
+INCIDENT SUMMARY
+--------------------------------------------------
+<What happened in 2–3 lines>
+
+--------------------------------------------------
+TIMELINE OF EVENTS
+--------------------------------------------------
+Time        | Event Description
+------------|--------------------------------------
+HH:MM       | Issue detected by monitoring
+HH:MM       | Alert triggered
+HH:MM       | Team notified
+HH:MM       | Mitigation applied
+HH:MM       | Service restored
+
+--------------------------------------------------
+ROOT CAUSE
+--------------------------------------------------
+<Actual technical cause of the incident>
+
+--------------------------------------------------
+CONTRIBUTING FACTORS
+--------------------------------------------------
+1. <Factor 1>
+2. <Factor 2>
+3. <Factor 3>
+
+--------------------------------------------------
+DETECTION
+--------------------------------------------------
+<How was the issue detected?>
+
+--------------------------------------------------
+RESOLUTION / MITIGATION
+--------------------------------------------------
+<Steps taken to fix the issue>
+
+--------------------------------------------------
+WHY IT WAS NOT DETECTED EARLIER
+--------------------------------------------------
+<Gaps in monitoring, alerting, or process>
+
+--------------------------------------------------
+CORRECTIVE ACTIONS
+--------------------------------------------------
+Action Item | Owner | Priority | ETA | Status
+------------|-------|----------|-----|--------
+<Action>    | <Name>| High     | Date| Open
+
+--------------------------------------------------
+PREVENTIVE MEASURES
+--------------------------------------------------
+<Steps to prevent recurrence>
+
+--------------------------------------------------
+LESSONS LEARNED
+--------------------------------------------------
+<What went well / What can be improved>
+
+--------------------------------------------------
+ATTACHMENTS / REFERENCES
+--------------------------------------------------
+<Logs, screenshots, tickets, dashboards>
+
+--------------------------------------------------
+APPROVAL
+--------------------------------------------------
+Prepared By:
+Reviewed By:
+Approved By:
+Date:
+
